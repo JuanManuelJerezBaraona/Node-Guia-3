@@ -20,7 +20,7 @@ const agregarViaje = async (destino, presupuesto) => {
     const result = await pool.query(consulta, values);
     console.log('Viaje agregado');
 };
-agregarViaje();
+agregarViaje('Cancun', '1000');
 
 const obtenerViajes = async () => {
     const { rows } = await pool.query('SELECT * FROM viajes');
@@ -28,3 +28,5 @@ const obtenerViajes = async () => {
     return rows;
 };
 obtenerViajes();
+
+module.exports = { agregarViaje, obtenerViajes }
