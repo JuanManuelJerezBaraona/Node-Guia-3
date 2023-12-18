@@ -11,13 +11,20 @@ const pool = new Pool({
 const getDate = async () => {
     const result = await pool.query('SELECT NOW()');
     console.log(result);
-}
+};
 getDate();
 
 const agregarViaje = async (destino, presupuesto) => {
-    const consulta = "INSERT INTO viajes values (DEFAULT, $1, $2)";
+    const consulta = 'INSERT INTO viajes values (DEFAULT, $1, $2)';
     const values = [destino, presupuesto];
     const result = await pool.query(consulta, values);
-    console.log("Viaje agregado");
-}
-agregarViaje('Cancun', 1000000);
+    console.log('Viaje agregado');
+};
+agregarViaje();
+
+const obtenerViajes = async () => {
+    const { rows } = await pool.query('SELECT * FROM viajes');
+    console.log(rows);
+    return rows;
+};
+obtenerViajes();
