@@ -1,7 +1,10 @@
-const { agregarViaje, obtenerViajes } = require('./consultas')
-const express = require('express');
-const app = express();
-app.use(express.json())
+import express from 'express';
+import cors from 'cors';
+import { agregarViaje, obtenerViajes } from './consultas.js'; 
+
+const app = express(); // Creamos la aplicación express
+app.use(cors());  // Habilitamos CORS
+app.use(express.json()); // Habilitamos el uso de JSON
 
 
 app.listen(3000, console.log("SERVIDOR ENCENDIDO"))

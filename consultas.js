@@ -1,4 +1,5 @@
-const { Pool } = require('pg');
+import pkg from 'pg';
+const { Pool } = pkg;
 
 const pool = new Pool({
     host: 'localhost',
@@ -29,4 +30,4 @@ const obtenerViajes = async () => {
 };
 obtenerViajes();
 
-module.exports = { agregarViaje, obtenerViajes }
+export { agregarViaje, obtenerViajes };
